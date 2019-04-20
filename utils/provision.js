@@ -424,7 +424,8 @@ class cluster {
     _verifyNodejsVersion(locals) {
         return new Promise(
             (resolve, reject)=> {
-                if (parseInt(((process.version).split("v"))[1].substr(0, 1)) < 4) {
+                var verNo = (process.version).split("v")[1]
+                if (parseInt((verNo.substr(0, verNo.indexOf("."))) < 4) {
                     reject("\n  The nodejs version is too low.  This application requires\n" +
                         "  ES6 features in order to provision a cluster, specifically: \n" +
                         "    --promises \n    --arrow functions \n    --classes \n" +
